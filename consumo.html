@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calculadora de Consumo de Combustível</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    .container {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Calculadora de Consumo de Combustível</h2>
+    <form id="consumoForm">
+      <div class="form-group">
+        <label for="distancia">Distância percorrida (em km):</label>
+        <input type="number" class="form-control" id="distancia" required>
+      </div>
+      <div class="form-group">
+        <label for="litros">Quantidade de litros consumidos:</label>
+        <input type="number" class="form-control" id="litros" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Calcular</button>
+    </form>
+    <br>
+    <div id="resultado" style="display: none;">
+      <h4>Resultado:</h4>
+      <p>O consumo médio do seu carro é de <span id="consumo"></span> km/l.</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('consumoForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      calcularConsumo();
+    });
+
+    function calcularConsumo() {
+      var distancia = parseFloat(document.getElementById('distancia').value);
+      var litros = parseFloat(document.getElementById('litros').value);
+      var consumoMedio = distancia / litros;
+      document.getElementById('consumo').textContent = consumoMedio.toFixed(2);
+      document.getElementById('resultado').style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>
