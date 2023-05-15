@@ -1,2 +1,2 @@
 # FuelTrack
-Simples código para calcular consumo conmbustível
+Simples código para calcular consumo combustível
